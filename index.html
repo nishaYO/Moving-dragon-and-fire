@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Dragon</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+      }
+      /* .image { */
+      /* border: 5px solid white; */
+      /* } */
+      .dragon {
+        width: 220px;
+        height: 400px;
+        object-fit: cover;
+        /* applying animation */
+        /* z-index: 6; */
+        animation: dragon-anime 3s ease-in infinite alternate-reverse;
+      }
+
+      .fire {
+        transform: rotate(0.8turn) translate(-100px, 50px);
+        width: 120px;
+        height: 150px;
+        align-self: start;
+        position: relative;
+        z-index: 5;
+        top: 10%;
+        animation: fire-anime 6s ease-in infinite  normal;
+        /* visibility: hidden; */
+      }
+
+      .ground {
+        width: 50vw;
+        height: 100%;
+      }
+      .subflex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box1 {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 10vh;
+        height: 60vh;
+        width: 100vw;
+        /* applying animation */
+        animation: box1-anime 2s ease-in-out 0.2s infinite alternate-reverse;
+        /* border: 5px solid white; */
+      }
+      .box2 {
+        z-index: 1;
+        height: 30vh;
+        /* applying animation */
+        animation: flames-anime 2s ease-in-out 0.2s infinite alternate-reverse;
+        /* border: 5px solid rgb(23, 215, 116); */
+      }
+
+      @keyframes flames-anime {
+        from {
+          height: 30vh;
+        }
+        to {
+          height: 50vh;
+          
+          transform: skew(20deg) scalex(20vw);
+        }
+      }
+
+      @keyframes box1-anime {
+        from {
+          margin-bottom: 10vh;
+        }
+        to {
+          margin-bottom: 0vh;
+          height: 50vh;
+        }
+      }
+
+      @keyframes dragon-anime {
+        0% {
+          width: 220px;
+          height: 400px;
+        }
+
+        60% {
+          width: 280px;
+          height: 500px;
+        }
+
+        100% {
+          transform: skew(-30deg, 10deg);
+        }
+      }
+
+      @keyframes fire-anime {
+      from{width: 120px;
+        height: 150px;
+        transform: rotate(0.8turn) translate(-100px, 50px);}
+
+        to{
+          width: 120px;
+        height: 150px;
+        transform: rotate(0.8turn) translate(-100px, 300px) skewX(-20deg) skewY(20deg) scale(110%, 130%) rotate(-20deg) scale(2) skew(10deg) ;
+        /* transform: rotate(-20deg) scale(2) skew(10deg) ; */
+         
+        }
+      
+      
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box1 subflex">
+        <img
+          class="dragon image"
+          src="https://wallpaperaccess.com/full/1198585.jpg"
+          alt="dragon image "
+        />
+        <img
+          class="fire image"
+          src="https://media.istockphoto.com/id/172303282/photo/black-background-with-a-burning-flame.jpg?b=1&s=170667a&w=0&k=20&c=LAYQU9wIwOlm1V2xGnlK-EZ4ZXmDdzytaduZOmFaWYg="
+          alt="fire image"
+        />
+      </div>
+      <div class="box2 subflex">
+        <img
+          class="ground image"
+          src="https://wallpaperaccess.com/full/1817682.jpg"
+          alt="ground image 1"
+        />
+        <img
+          class="ground image"
+          src="https://wallpaperaccess.com/full/1817682.jpg"
+          alt="ground image 2"
+        />
+      </div>
+    </div>
+  </body>
+</html>
